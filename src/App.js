@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Content from "./components/Content";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      "https://raw.githubusercontent.com/Danilovesovic/bands/master/bands_with_id.json"
+    )
+      .then((prom) => prom.json())
+      .then((res) => {
+        setData(res);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Content data={data} />
     </div>
   );
 }
