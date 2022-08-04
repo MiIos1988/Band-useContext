@@ -3,7 +3,6 @@ import Band from "./Band";
 
 function Content({ data }) {
   const bands = data.map((band) => {
-    console.log(band.id);
     return (
       <div key={band.id}>
         <Band band={band} />
@@ -11,7 +10,7 @@ function Content({ data }) {
     );
   });
 
-  return <div>{bands}</div>;
+  return <div className="container">{bands}</div>;
 }
 
 export default Content;

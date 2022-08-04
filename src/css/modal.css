@@ -1,0 +1,47 @@
+.content {
+  width: 500px;
+  height: 420px;
+  border: 1px solid silver;
+  background-color: white;
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.modalHed {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-bottom: 2px solid silver;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.modalImg {
+  display: flex;
+
+  justify-content: space-around;
+}
+.modalImg > img {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+.modalText {
+  max-height: 150px;
+  overflow: auto;
+  margin: 5px;
+}
+.modalFut {
+  border-top: 1px solid silver;
+  padding: 10px;
+  display: flex;
+  justify-content: end;
+}
+.modalFut > button {
+  background-color: silver;
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}

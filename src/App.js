@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import Modal from "./components/Modal";
+export const DataContext = React.createContext();
 
 function App() {
   const [data, setData] = useState([]);
+  const [modal, setModal] = useState([]);
+
+  const getData = (dataFun) => {
+    setModal(dataFun);
+    document.querySelector(".content").style.display = "block";
+  };
 
   useEffect(() => {
     fetch(
@@ -18,7 +26,10 @@ function App() {
   return (
     <div>
       <Header />
-      <Content data={data} />
+      <DataContext.Provider value={getData}>
+        <Content data={data} getData={getData} />
+      </DataContext.Provider>
+      <Modal modal={modal} />
     </div>
   );
 }
