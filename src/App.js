@@ -7,12 +7,10 @@ export const DataContext = React.createContext();
 function App() {
   const [data, setData] = useState([]);
   const [modal, setModal] = useState([]);
-
   const getData = (dataFun) => {
     setModal(dataFun);
     document.querySelector(".content").style.display = "block";
   };
-
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/Danilovesovic/bands/master/bands_with_id.json"
